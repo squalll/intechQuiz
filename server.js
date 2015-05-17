@@ -32,8 +32,38 @@ app.get('/votes/vote', routes.votes.vote);
 app.get('/votes/getAll', routes.votes.getvotes); 
 
 //Get reset
-app.get('/votes/reset', routes.votes.reset); 
+app.get('/votes/reset', routes.votes.reset);
 
 // listen (start app with node server.js) ======================================
-app.listen(port);
+var http = app.listen(port);
 console.log("App listening on port " + port);
+
+// web socket ======================================================================
+var io = require('socket.io')(http);
+
+var questions = [
+    'question 1'
+    , 'question 2'
+    , 'question 3'
+    , 'question 4'
+    , 'question 5'
+    , 'question 6'
+    , 'question 7'
+];
+
+var questionNumber = 0;
+
+io.on('connection', function(socket){
+
+    console.log('a user connected');
+    socket.emit('question', questions[questionNumber++]);
+
+    socket.on('disconnect', function(){
+        console.log('user disconnected');
+    });
+    
+    socket.on('vote', function(msg){
+        console.log('user vote is : ' + msg);
+        socket.emit('question', questions[questionNumber++]);
+    });
+});
