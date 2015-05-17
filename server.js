@@ -9,9 +9,6 @@ var secret = require('./app/config/secret');
 var tokenManager = require('./app/config/token_manager');
 
 var methodOverride = require('method-override');
-var sys = require('sys')
-var exec = require('child_process').exec;
-
 // configuration ===============================================================
 
 app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
@@ -29,12 +26,13 @@ var routes = {};
 routes.votes = require('./app/routes/votes.js');
 
 //Login
-app.post('/votes/vote', routes.votes.vote); 
+app.get('/votes/vote', routes.votes.vote); 
 
 //Get all votes
 app.get('/votes/getAll', routes.votes.getvotes); 
 
-
+//Get reset
+app.get('/votes/reset', routes.votes.reset); 
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
