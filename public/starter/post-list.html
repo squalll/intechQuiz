@@ -1,0 +1,43 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../post-service/post-service.html">
+<link rel="import" href="post-card.html">
+
+<polymer-element name="post-list" attributes="show">
+  <template>
+    <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    post-card {
+      margin-bottom: 30px;
+    }
+    </style>
+    
+    <!-- add markup here -->
+    
+	
+<post-service id="service" question="{{question}}">
+</post-service>
+
+<div layout vertical center>
+
+	<post-card
+	  reponse="{{question.questions.reponse}}"
+	  on-favorite-tap="{{handleFavorite}}">
+		  <p>{{question.questions.question}}</p>
+	</post-card>
+
+</div>
+  </template>
+
+  <script>
+  Polymer({
+   handleFavorite: function(event, detail, sender) {
+    var question = sender.templateInstance.model.question;
+    this.$.service.setFavorite(question.questions.reponse, question.questions.question);
+  }
+});
+  </script>
+
+</polymer-element>

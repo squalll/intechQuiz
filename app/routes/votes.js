@@ -15,7 +15,7 @@ console.log("fonction : " +contains(ips,ip));
  }else{
 	ips.push(ip);
 	var vote= Number(req.query.vote); 
-	votes [vote] +=  1;
+	votes [vote-1] +=  1;
 	return res.json(200, {votes:votes,date:new Date(),ips:ips});
 }
  

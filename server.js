@@ -24,6 +24,7 @@ app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-M
 
 var routes = {};
 routes.votes = require('./app/routes/votes.js');
+routes.questions = require('./app/routes/questions.js');
 
 //Login
 app.get('/votes/vote', routes.votes.vote); 
@@ -33,6 +34,9 @@ app.get('/votes/getAll', routes.votes.getvotes);
 
 //Get reset
 app.get('/votes/reset', routes.votes.reset);
+
+//getNext
+app.get('/questions/getNext', routes.questions.getNext);
 
 // listen (start app with node server.js) ======================================
 var http = app.listen(port);
