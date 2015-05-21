@@ -1,6 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../post-service/post-service.html">
-<link rel="import" href="post-card.html">
+<link rel="import" href="custom-keyboard.html">
 
 <polymer-element name="post-list" attributes="show">
   <template>
@@ -22,11 +22,11 @@
 
 <div layout vertical center>
 
-	<post-card
+	<custom-keyboard
 	  reponse="{{question.questions.reponse}}"
 	  on-favorite-tap="{{handleFavorite}}">
 		  <p>{{question.questions.question}}</p>
-	</post-card>
+	</custom-keyboard>
 
 </div>
   </template>
@@ -36,6 +36,7 @@
    handleFavorite: function(event, detail, sender) {
     var question = sender.templateInstance.model.question;
     this.$.service.setFavorite(question.questions.reponse, question.questions.question);
+	location.href = "#rep";
   }
 });
   </script>
