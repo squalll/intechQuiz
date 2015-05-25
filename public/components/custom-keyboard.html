@@ -53,23 +53,24 @@
 	<content></content>
     <!-- CARD CONTENTS GO HERE -->
     <div class="card-row-1" layout horizontal center>
-		  <paper-button  on-tap="{{favoriteTapped}}" value="1" id="paper_button1">1</paper-button>
-		  <paper-button   on-tap="{{favoriteTapped}}" value="2" id="paper_button2">2</paper-button>
-		  <paper-button   on-tap="{{favoriteTapped}}" value="3" id="paper_button3">3</paper-button> 
+		  <paper-button  on-tap="{{favoriteTapped}}" value="1" id="paper_button1" disabled?="{{ voted }}">1</paper-button>
+		  <paper-button   on-tap="{{favoriteTapped}}" value="2" id="paper_button2" disabled?="{{ voted }}">2</paper-button>
+		  <paper-button   on-tap="{{favoriteTapped}}" value="3" id="paper_button3" disabled?="{{ voted }}">3</paper-button>
 	</div>
 	 <div class="card-row-1" layout horizontal center>
-		  <paper-button   on-tap="{{favoriteTapped}}" value="4" id="paper_button1">4</paper-button>
-		  <paper-button   on-tap="{{favoriteTapped}}" value="5" id="paper_button2">5</paper-button>
-		  <paper-button   on-tap="{{favoriteTapped}}" value="6" id="paper_button3">6</paper-button> 
+		  <paper-button   on-tap="{{favoriteTapped}}" value="4" id="paper_button4" disabled?="{{ voted }}">4</paper-button>
+		  <paper-button   on-tap="{{favoriteTapped}}" value="5" id="paper_button5" disabled?="{{ voted }}">5</paper-button>
+		  <paper-button   on-tap="{{favoriteTapped}}" value="6" id="paper_button6" disabled?="{{ voted }}">6</paper-button>
 	</div>
 	 <div class="card-row-1" layout horizontal center>
-		  <paper-button   on-tap="{{favoriteTapped}}" value="7" id="paper_button1">7</paper-button>
-		  <paper-button   on-tap="{{favoriteTapped}}" value="8" id="paper_button2">8</paper-button>
-		  <paper-button   on-tap="{{favoriteTapped}}" value="9" id="paper_button3">9</paper-button> 
+		  <paper-button   on-tap="{{favoriteTapped}}" value="7" id="paper_button7" disabled?="{{ voted }}">7</paper-button>
+		  <paper-button   on-tap="{{favoriteTapped}}" value="8" id="paper_button8" disabled?="{{ voted }}">8</paper-button>
+		  <paper-button   on-tap="{{favoriteTapped}}" value="9" id="paper_button9" disabled?="{{ voted }}">9</paper-button>
 	</div>
 		
   </template>
   <script>
+
   Polymer({
   publish: {
     reponse: {
@@ -77,10 +78,14 @@
       reflect: true
     }
   },
+  voted: false,
   favoriteTapped: function(event, detail, sender) {
     this.reponse = event.target.getAttribute('value');
     this.fire('favorite-tap');
+    this.voted = true;
   }
 });
+
   </script>
+    
 </polymer-element>

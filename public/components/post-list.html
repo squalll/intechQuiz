@@ -23,6 +23,7 @@
 <div layout vertical center>
 
 	<custom-keyboard
+      id="keyboard"
 	  reponse="{{question.questions.reponse}}"
 	  on-favorite-tap="{{handleFavorite}}">
 		  <p>{{question.questions.question}}</p>
@@ -37,6 +38,7 @@
     var question = sender.templateInstance.model.question;
     this.$.service.setFavorite(question.questions.reponse, question.questions.question);
 	location.href = "#rep";
+    //this.$.keyboard.toggle();
   }
 });
   </script>
