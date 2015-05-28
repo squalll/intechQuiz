@@ -6,7 +6,7 @@ var morgan   = require('morgan');
 var bodyParser = require('body-parser');
 var jwt = require('express-jwt');
 var secret = require('./app/config/secret');
-var tokenManager = require('./app/config/token_manager');
+//var tokenManager = require('./app/config/token_manager');
 
 var methodOverride = require('method-override');
 // configuration ===============================================================
@@ -60,20 +60,25 @@ var questionNumber = 0;
 io.on('connection', function(socket){
 
     console.log('a user connected : ' + socket.handshake.address);
+    console.log(socket.client);
+    
+    //envoi de la question courante des qu'on se connecte 
     socket.emit('question', questions[questionNumber]);
 
     socket.on('disconnect', function(){
         console.log('user disconnected');
     });
     
+    //si on veut faire le vote en websocket...
     socket.on('vote', function(msg){
         console.log('user vote is : ' + msg);
         socket.emit('question', questions[questionNumber++]);
     });
-    
+
+    //getion du bouton 'next question'    
     socket.on('next', function(msg){
         console.log('next question is : ' + questions[questionNumber+1]);
-        io.sockets.emit('question', questions[questionNumber++]);
+        io.sockets.emit('question', questions[++questionNumber]);
     });
 });
 

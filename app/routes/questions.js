@@ -1,6 +1,6 @@
 var jwt = require('jsonwebtoken');
 var secret = require('../config/secret');
-var tokenManager = require('../config/token_manager');
+//var tokenManager = require('../config/token_manager');
 
 exports.getNext = function(req, res) {
 
