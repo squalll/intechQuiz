@@ -59,8 +59,8 @@ var questionNumber = 0;
 
 io.on('connection', function(socket){
 
-    console.log('a user connected');
-    socket.emit('question', questions[questionNumber++]);
+    console.log('a user connected : ' + socket.handshake.address);
+    socket.emit('question', questions[questionNumber]);
 
     socket.on('disconnect', function(){
         console.log('user disconnected');
@@ -70,4 +70,10 @@ io.on('connection', function(socket){
         console.log('user vote is : ' + msg);
         socket.emit('question', questions[questionNumber++]);
     });
+    
+    socket.on('next', function(msg){
+        console.log('next question is : ' + questions[questionNumber+1]);
+        io.sockets.emit('question', questions[questionNumber++]);
+    });
 });
+

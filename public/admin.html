@@ -1,35 +1,63 @@
 <!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
 <html>
-
 <head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-  <title>intechQuizz</title>
+    <title>ADMIN</title>
 
-  <meta name="viewport" 
-  content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-
-    <script src="/bower_components/webcomponentsjs/webcomponents.js"> </script>
-<link rel="import" href="./bower_components/core-animated-pages/core-animated-pages.html">
-<link rel="import" href="./bower_components/core-animated-pages/transitions/slide-from-right.html">
-<link rel="import" href="./bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="./bower_components/core-scaffold/core-scaffold.html">
-<link rel="import" href="./bower_components/core-icon-button/core-icon-button.html">
-<link rel="import" href="./bower_components/core-icon/core-icon.html">
-<link rel="import" href="./bower_components/core-menu/core-menu.html">
-<link rel="import" href="./bower_components/paper-item/paper-item.html">
-<link rel="import" href="./bower_components/font-roboto/roboto.html">
-<link rel="import" href="./bower_components/core-a11y-keys/core-a11y-keys.html">
-<link rel="import" href="./bower_components/core-ajax/core-ajax.html">
-<link rel="import" href="./components/post-list.html">
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
 </head>
-<body unresolved fullbleed>
+<!-- SET THE CONTROLLER -->
+<body ng-app="app">
+
+<div id="container"  ng-controller="MainController">
+</div>
 
 
+<script type="text/javascript" src="js/lib/jquery/jquery-2.0.3.min.js"></script>
+
+
+<!-- SPELLS -->
+<script type="text/javascript" src="js/lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="js/lib/angular/angular-route.min.js"></script>
+
+
+<script type="text/javascript" src="js/lib/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/lib/jstorage/jstorage.min.js"></script>
+
+
+<script src="js/core.js"></script>
+
+<script src="js/controllers/mainCtrl.js"></script>
+<script src="js/controllers/configCtrl.js"></script>
+
+<script src="js/services/services.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<div class="text-center">
+    <div class="btn-group" role="group" aria-label="First group">
+        <button id="next" type="button" class="btn btn-default">NEXT QUESTION</button>
+    </div>
+    <br />
+</div>
 
 <script>
+    var socket = io();
 
+    $('#next').on('click', function(){
+        socket.emit('next');
+    });
 </script>
+
 
 
 </body>
