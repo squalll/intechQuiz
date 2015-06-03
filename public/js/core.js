@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('app', ['ngRoute', 'appControllers', 'appServices']);
+var app = angular.module('app', ['ngRoute', 'appControllers', 'appServices','ngMaterial']);
 
 var appServices = angular.module('appServices', []);
 
@@ -16,8 +16,12 @@ app.config(['$locationProvider', '$routeProvider',
             function($location, $routeProvider) {
               $routeProvider.
                   when('/', {
-                      templateUrl: 'partials/config.html',
-                      controller: 'ConfigCtrl'
+                      templateUrl: 'partials/reponse.html',
+                      controller: 'ReponseCtrl'
+                  }).
+                  when('/response', {
+                      templateUrl: 'partials/reponse.html',
+                      controller: 'ReponseCtrl'
                   }).
                   otherwise({
                       redirectTo: '/'

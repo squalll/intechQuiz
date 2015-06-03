@@ -1,8 +1,54 @@
 <!doctype html>
 
+<!-- ASSIGN OUR ANGULAR MODULE -->
 <html>
 <head>
-	<meta http-equiv="refresh" content="0; url=/question.html">
-</head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
+	<title>Domo Tref</title>
+
+	<!-- SCROLLS -->
+ 	<link rel="stylesheet" href="css/bootstrap.min.css"> 
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+
+</head>
+<!-- SET THE CONTROLLER -->
+<body ng-app="app"  ng-controller="MainController">
+
+
+      <div class="container" ng-view> </div>
+
+                                
+		    <script src="/socket.io/socket.io.js"></script>
+			<script type="text/javascript" src="js/lib/jquery/jquery-2.0.3.min.js"></script>
+		
+		
+	<!-- SPELLS -->
+   <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+      <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
+   <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.min.js"></script>
+   
+   <script type="text/javascript" src="/bower_components/angular-aria/angular-aria.min.js"></script>
+                     
+   <script type="text/javascript" src="/bower_components/angular-material/angular-material.min.js"></script>
+  
+	<script type="text/javascript" src="js/lib/bootstrap/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="js/lib/jstorage/jstorage.min.js"></script>
+
+
+        <script src="js/core.js"></script>
+        
+        <script src="js/controllers/mainCtrl.js"></script>
+        <script src="js/controllers/reponseCtrl.js"></script>
+        
+        <script src="js/services/services.js"></script>
+        
+
+	
+
+</body>
 </html>
