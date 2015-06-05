@@ -60,7 +60,7 @@ var questionNumber = 0;
 io.on('connection', function(socket){
 
     console.log('a user connected : ' + socket.handshake.address);
-    console.log(socket.client);
+    //console.log(socket.client);
     
     //envoi de la question courante des qu'on se connecte 
     socket.emit('question', questions[questionNumber]);
