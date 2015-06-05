@@ -27,7 +27,7 @@ routes.votes = require('./app/routes/votes.js');
 routes.questions = require('./app/routes/questions.js');
 
 //Login
-app.get('/votes/vote', routes.votes.vote); 
+app.post('/votes/vote', routes.votes.vote); 
 
 //Get all votes
 app.get('/votes/getAll', routes.votes.getvotes); 
@@ -66,14 +66,14 @@ io.on('connection', function(socket){
     socket.emit('question', questions[questionNumber]);
 
     socket.on('disconnect', function(){
-        console.log('user disconnected');
+        console.log('user disconnected : ' + socket.handshake.address);
     });
     
     //si on veut faire le vote en websocket...
-    socket.on('vote', function(msg){
+    /*socket.on('vote', function(msg){
         console.log('user vote is : ' + msg);
         socket.emit('question', questions[questionNumber++]);
-    });
+    });*/
 
     //getion du bouton 'next question'    
     socket.on('next', function(msg){

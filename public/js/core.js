@@ -23,6 +23,10 @@ app.config(['$locationProvider', '$routeProvider',
                       templateUrl: 'partials/reponse.html',
                       controller: 'ReponseCtrl'
                   }).
+                  when('/admin', {
+                      templateUrl: 'partials/admin.html',
+                      controller: 'AdminCtrl'
+                  }).
                   otherwise({
                       redirectTo: '/'
                   });
