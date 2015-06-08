@@ -1,7 +1,9 @@
 
-appControllers.controller('AdminCtrl', ['$scope', '$http','VoteService',
-   function AdminCtrl($scope,$http,VoteService) {
+appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService',
+   function AdminCtrl($scope,$http,QuestionService) {
 
-	
+	          $scope.next = function(){     
+              QuestionService.pushNext();
+             }
 }
 ]);

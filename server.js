@@ -22,6 +22,43 @@ app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-M
 
 // routes ======================================================================
 
+
+// listen (start app with node server.js) ======================================
+var http = app.listen(port);
+console.log("App listening on port " + port);
+
+// web socket ======================================================================
+var io = require('socket.io')(http);
+
+
+
+
+
+io.on('connection', function(socket){
+
+    console.log('a user connected : ' + socket.handshake.address);
+    //console.log(socket.client);
+    
+    //envoi de la question courante des qu'on se connecte 
+   //socket.emit('question', questions[questionNumber]);
+
+    socket.on('disconnect', function(){
+        console.log('user disconnected : ' + socket.handshake.address);
+    });
+    
+    //si on veut faire le vote en websocket...
+    /*socket.on('vote', function(msg){
+        console.log('user vote is : ' + msg);
+        socket.emit('question', questions[questionNumber++]);
+    });*/
+
+    //getion du bouton 'next question'    
+    socket.on('next', function(msg){
+        console.log('next question is : ' + questions[questionNumber+1]);
+        //io.sockets.emit('question', questions[++questionNumber]);
+    });
+});
+
 var routes = {};
 routes.votes = require('./app/routes/votes.js');
 routes.questions = require('./app/routes/questions.js');
@@ -38,47 +75,7 @@ app.get('/votes/reset', routes.votes.reset);
 //getNext
 app.get('/questions/getNext', routes.questions.getNext);
 
-// listen (start app with node server.js) ======================================
-var http = app.listen(port);
-console.log("App listening on port " + port);
+//getNext
+app.get('/questions/pushNext', routes.questions.pushNext(io));
 
-// web socket ======================================================================
-var io = require('socket.io')(http);
-
-var questions = [
-    'question 1'
-    , 'question 2'
-    , 'question 3'
-    , 'question 4'
-    , 'question 5'
-    , 'question 6'
-    , 'question 7'
-];
-
-var questionNumber = 0;
-
-io.on('connection', function(socket){
-
-    console.log('a user connected : ' + socket.handshake.address);
-    //console.log(socket.client);
-    
-    //envoi de la question courante des qu'on se connecte 
-    socket.emit('question', questions[questionNumber]);
-
-    socket.on('disconnect', function(){
-        console.log('user disconnected : ' + socket.handshake.address);
-    });
-    
-    //si on veut faire le vote en websocket...
-    /*socket.on('vote', function(msg){
-        console.log('user vote is : ' + msg);
-        socket.emit('question', questions[questionNumber++]);
-    });*/
-
-    //getion du bouton 'next question'    
-    socket.on('next', function(msg){
-        console.log('next question is : ' + questions[questionNumber+1]);
-        io.sockets.emit('question', questions[++questionNumber]);
-    });
-});
 
