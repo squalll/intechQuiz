@@ -20,8 +20,12 @@ appServices.factory('VoteService', function($http) {
         },
  
         getAll: function() {
-            return $http.post(options.api.base_url + '/votes/all');
+            return $http.get(options.api.base_url + '/votes/getAll');
+        },
+		 reset: function() {
+            return $http.get(options.api.base_url + '/votes/reset');
         }
+		
     }
 });
 
