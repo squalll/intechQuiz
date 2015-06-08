@@ -3,7 +3,7 @@ appControllers.controller('ReponseCtrl', ['$scope', '$http','VoteService',
    function ReponseCtrl($scope,$http,VoteService) {
     
     $scope.voted = false;
-    
+    $scope.currentQuestion={};
    //appel http au clic pour envoyer le vote au serveur
    $scope.vote = function(v){
       console.log('vote : ' + v);
@@ -17,8 +17,9 @@ appControllers.controller('ReponseCtrl', ['$scope', '$http','VoteService',
    var socket = io();
 
     socket.on('question', function (data) {
-        console.log('got new question : ' + data);
-        $('#question').text(data);
+		 $scope.voted = false;
+         $scope.currentQuestion=data;
+		 $scope.$apply();
     });
 
 

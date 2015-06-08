@@ -1,10 +1,15 @@
+<div class="jumbotron">
+  <div class="container">
+    {{currentQuestion.question}}
+  </div>
+</div>
+
 <div style="width:100%;height:100%"  layout="column"  layout-align="center center" ng-controller="ReponseCtrl">
-  <p id="question"></p>
-  <md-whiteframe class="md-whiteframe-z5"  layout="column" layout-align="center center" ng-switch="voted" style="position:relative">
+ <md-whiteframe class="md-whiteframe-z5"  layout="column" layout-align="center center" ng-switch="voted" style="position:relative">
     <div class="container animate-switch"  style="max-width:270px" ng-switch-when="false">
       <md-grid-list md-cols="3" md-row-height="68px">
-        <md-grid-tile ng-repeat="n in [1,2,3,4,5,6,7,8,9]" flex>
-          <md-button class="md-fab md-primary" ng-click="vote(n)">{{n}}</md-button>
+        <md-grid-tile ng-repeat="n in currentQuestion.answers" flex>
+          <md-button class="md-fab md-primary" ng-click="vote(n)">{{ $index+1 }} </md-button>
         </md-grid-tile>
       </md-grid-list>
     </div>

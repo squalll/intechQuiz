@@ -7,8 +7,8 @@ appServices.factory('QuestionService', function($http) {
             return $http.get(options.api.base_url + '/questions/pushNext');
         },
  
-        getAll: function() {
-            return $http.post(options.api.base_url + '/votes/all');
+        reset: function() {
+            return $http.get(options.api.base_url + '/questions/reset');
         }
     }
 });

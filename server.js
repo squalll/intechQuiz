@@ -75,7 +75,10 @@ app.get('/votes/reset', routes.votes.reset);
 //getNext
 app.get('/questions/getNext', routes.questions.getNext);
 
-//getNext
+//pushNext
 app.get('/questions/pushNext', routes.questions.pushNext(io));
+
+//reset questions
+app.get('/questions/reset', routes.questions.reset);
 
 

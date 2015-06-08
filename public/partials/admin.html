@@ -1,9 +1,19 @@
+<div class="jumbotron">
+  <div class="container">
+    {{currentQuestion.question}}
+  </div>
+</div>
 
+  <div class="container" style="opacity: 0.9;">
+	  <ul class="list-group">
+		  <li class="list-group-item" ng-repeat="answer in currentQuestion.answers">{{ $index+1 }} : {{answer}}</li>
+	</ul>
+  </div>
 <div class="text-center" ng-controller="AdminCtrl">
     <div class="btn-group" role="group" aria-label="First group">
         <button id="next" type="button" class="btn btn-default" ng-click="next()">NEXT QUESTION</button>
+	 <button id="next" type="button" class="btn btn-default" ng-click="reset()">Reset</button>
+
     </div>
     <br />
 </div>
-
-<script src="js/controllers/adminCtrl.js"></script>
