@@ -23,7 +23,7 @@ app.config(['$locationProvider', '$routeProvider',
                       templateUrl: 'partials/reponse.html',
                       controller: 'ReponseCtrl'
                   }).
-                  when('/admin', {
+                  when('/asdasdadadasdasdasdadwwerwerwwerwerwerwersdfwerwefsdgwegwrwergegrhwertwergweerrhfgherthdfgnherherjfghetzwtrjdfgwerhfgnaergwehjgawertgnadegh/admin', {
                       templateUrl: 'partials/admin.html',
                       controller: 'AdminCtrl'
                   }).
