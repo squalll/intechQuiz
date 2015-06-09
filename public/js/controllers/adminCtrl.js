@@ -43,7 +43,19 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
 
     socket.on('question', function (data) {
         $scope.currentQuestion=data;
+        var categories = [];
+        for (var i = 1 ; i < data.answers.length+1 ; i++){
+            categories.push('' + i);
+        }
+        Highcharts.charts[0].xAxis[0].setCategories(categories);
     });
+
+   socket.on('votes', function (votes) {
+       //on reduit le tableau au nombre de reponses possibles pour se caler sur les categories
+       votes = votes.slice(0, $scope.currentQuestion.answers.length);
+       console.log(votes);
+       Highcharts.charts[0].series[0].setData(votes);
+   });
 
 
     $scope.chartConfig = {
@@ -70,13 +82,13 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
 
         },
         series: [{
-            data: [10, 15, 12, 8, 7]
+            data: []
         }],
         title: {
             text: 'Réponses'
         },
 
-        loading: false,
+        loading: false
 
 
     }

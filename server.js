@@ -71,7 +71,7 @@ routes.votes = require('./app/routes/votes.js');
 routes.questions = require('./app/routes/questions.js');
 
 //Login
-app.post('/votes/vote', routes.votes.vote, routes.questions.checkWinner);
+app.post('/votes/vote', routes.votes.vote(io), routes.questions.checkWinner);
 
 //Get all votes
 app.get('/votes/getAll', routes.votes.getvotes); 

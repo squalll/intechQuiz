@@ -7,22 +7,26 @@ var ips = [];
 
 
 
-exports.vote = function(req, res, next) {
+exports.vote = function(io) {
+    return function(req, res, next) {
 
- var ip = req.connection.remoteAddress;
- console.log("fonction : " +contains(ips,ip));
- if(contains(ips,ip)){
-	console.log("boulet : " + ip);
-	return res.json(200, {message:'tricheur'});
- }else{
-	ips.push(ip);
-	var vote= Number(req.body.vote);
-    console.log("vote : " + req.body.vote);
-	votes [vote-1] +=  1;
-	//return res.json(200, {votes:votes,date:new Date(),ips:ips});
-     next();
-}
- 
+        var ip = req.connection.remoteAddress;
+        console.log("fonction : " + contains(ips, ip));
+        if (contains(ips, ip)) {
+            console.log("boulet : " + ip);
+            return res.json(200, {message: 'tricheur'});
+        } else {
+            ips.push(ip);
+            var vote = Number(req.body.vote);
+            console.log("vote : " + req.body.vote);
+            votes [vote - 1] += 1;
+            //return res.json(200, {votes:votes,date:new Date(),ips:ips});
+
+            io.sockets.emit('votes', votes);
+
+            next();
+        }
+    }
 
 };
 
@@ -40,8 +44,8 @@ return res.json(200, "reset");
 function contains(a, obj) {
     var i = a.length;
     while (i--) {
-	console.log("a[i] : "+ a[i]);
-	console.log("obj: "+ obj);
+	//console.log("a[i] : "+ a[i]);
+	//console.log("obj: "+ obj);
        if (a[i] == obj) {
            return true;
        }

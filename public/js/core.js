@@ -9,7 +9,7 @@ var appControllers = angular.module('appControllers', []);
 
 var options = {};
 options.api = {};
-options.api.base_url = "http://localhost:3580";
+//options.api.base_url = "http://localhost:3580";
 
 
 app.config(['$locationProvider', '$routeProvider', 
