@@ -5,7 +5,8 @@ var secret = require('../config/secret');
 var data = require('./questions.json');
 var questionNumber = -1;
 
-
+//compteur de gagnants
+var winners = 0;
 
 exports.getNext = function(req, res) {
 	return res.json(200, data.questions[questionNumber]);
@@ -16,7 +17,7 @@ exports.getNext = function(req, res) {
 exports.reset = function(req, res) {
 	
 	questionNumber = -1;
-	
+	winners = 0;
 	return res.json(200);
  
 
@@ -30,3 +31,30 @@ exports.pushNext = function(io) {
     res.json(200, {message: "Message received!"});    
   }
 };
+
+exports.checkWinner = function(req, res) {
+    var currentQuestion = data.questions[questionNumber];
+    if(!isNaN(currentQuestion.type)
+    ) {
+        if (Number(currentQuestion.type) > winners
+            && currentQuestion.goodanswer == req.body.vote) {
+            //winner++;
+            console.log(++winners + " winner(s) / " + currentQuestion.type);
+            return res.json(200, {win: true});
+        }else{
+            return res.json(200, {win: false});
+        }
+    }
+
+    return res.json(200);
+
+
+};
+
+exports.currentQuestion = function(){
+    if(questionNumber >= 0){
+        return data.questions[questionNumber];
+    }else{
+        return null;
+    }
+}

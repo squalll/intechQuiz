@@ -1,3 +1,9 @@
+body {
+    background:url(/images/intech_slide1.png) no-repeat fixed 50% 50%;
+    /*background-size: 50% 50%;*/
+    width:100%;
+    height:100%;
+}
 
 .animate-switch-container {
   position:relative;

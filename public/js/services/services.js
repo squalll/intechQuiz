@@ -10,6 +10,7 @@ appServices.factory('QuestionService', function($http) {
         reset: function() {
             return $http.get(options.api.base_url + '/questions/reset');
         }
+
     }
 });
 

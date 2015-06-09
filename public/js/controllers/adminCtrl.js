@@ -3,28 +3,28 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
    function AdminCtrl($scope,$http,QuestionService,VoteService) {
 
     $scope.currentQuestion={};
-	
-	 $scope.next = function(){     
+
+	 $scope.next = function(){
         QuestionService.pushNext();
 		VoteService.reset();
       }
-	  
-	   $scope.getReponse = function(){     
+
+	   $scope.getReponse = function(){
 		VoteService.getAll().success(function(retour) {
 			$scope.chartConfig.series[0].data = [10, 15, 1, 4, 6];
 			 console.log('data : ' + retour);
-			
+
 			// $location.path("/config");
-			
-		
+
+
 		}).error(function(status,retour) {
 			//console.log(status);
 			// console.log(data);
 		});;
-		
+
       }
-	  
-	  
+
+
 	      $scope.addSeries = function () {
         var rnd = []
         for (var i = 0; i < 10; i++) {
@@ -34,8 +34,8 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
             data: rnd
         })
     }
-	
-	  $scope.reset = function(){     
+
+	  $scope.reset = function(){
         QuestionService.reset();
 		VoteService.reset();
       }
@@ -44,13 +44,30 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
     socket.on('question', function (data) {
         $scope.currentQuestion=data;
     });
-	
-	
+
+
     $scope.chartConfig = {
         options: {
             chart: {
-                type: 'bar'
+                type: 'bar'/*,
+                events: {
+                    click: function(e) {
+                        alert ('Category: '+ e.xAxis[0].value +', value: '+ e.yAxis[0].value);
+                    }
+                }*/
+            },
+
+            plotOptions: {
+                bar: {
+                    cursor: 'pointer',
+                    events: {
+                        click: function(e) {
+                            console.log('click on : ' + this.data[e.point.category].y);
+                        }
+                    }
+                }
             }
+
         },
         series: [{
             data: [10, 15, 12, 8, 7]
@@ -59,7 +76,12 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
             text: 'Réponses'
         },
 
-        loading: false
+        loading: false,
+
+
     }
+
+
+
 }
 ]);

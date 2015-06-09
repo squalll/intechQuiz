@@ -4,6 +4,10 @@
   "description"  : "Simple todo application.",
   "main"         : "server.js",
   "author"       : "Scotch",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/squalll/intechQuiz"
+    },
   "dependencies" : {
     "express"         : "~4.6.1",
     "express-jwt": "~0.2.1",

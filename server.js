@@ -39,8 +39,15 @@ io.on('connection', function(socket){
     console.log('a user connected : ' + socket.handshake.address);
     //console.log(socket.client);
     
-    //envoi de la question courante des qu'on se connecte 
-   //socket.emit('question', questions[questionNumber]);
+    //envoi de la question courante des qu'on se connecte, si on n'a pas deja vote
+    if(routes.questions.currentQuestion()
+    //&& !routes.votes.hasVoted(socket)
+        ){
+        socket.emit('question', routes.questions.currentQuestion());
+        console.log('send current question to : ' + socket.handshake.address);
+    }else{
+        //console.log('no question or already voted : ' + socket.handshake.address);
+    }
 
     socket.on('disconnect', function(){
         console.log('user disconnected : ' + socket.handshake.address);
@@ -64,7 +71,7 @@ routes.votes = require('./app/routes/votes.js');
 routes.questions = require('./app/routes/questions.js');
 
 //Login
-app.post('/votes/vote', routes.votes.vote); 
+app.post('/votes/vote', routes.votes.vote, routes.questions.checkWinner);
 
 //Get all votes
 app.get('/votes/getAll', routes.votes.getvotes); 
@@ -80,5 +87,7 @@ app.get('/questions/pushNext', routes.questions.pushNext(io));
 
 //reset questions
 app.get('/questions/reset', routes.questions.reset);
+
+
 
 

@@ -9,7 +9,7 @@
     <div class="container animate-switch"  style="max-width:270px" ng-switch-when="false">
       <md-grid-list md-cols="3" md-row-height="68px">
         <md-grid-tile ng-repeat="n in currentQuestion.answers" flex>
-          <md-button class="md-fab md-primary" ng-click="vote($index)">{{ $index+1 }} </md-button>
+          <md-button class="md-fab md-primary" ng-click="vote($index+1)">{{ $index+1 }} </md-button>
         </md-grid-tile>
       </md-grid-list>
     </div>
