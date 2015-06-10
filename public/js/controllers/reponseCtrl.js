@@ -45,8 +45,7 @@ appControllers.controller('ReponseCtrl', ['$scope', '$http','VoteService',
 
         $('md-whiteframe').css('background-color', '')
 		$scope.currentQuestion = {
-             question: data.question,
-             answers: data.answers
+             question: data.question
 			 };
    
 		 $scope.$apply();
