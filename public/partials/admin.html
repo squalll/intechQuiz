@@ -9,16 +9,27 @@
 		  <li class="list-group-item" ng-repeat="answer in currentQuestion.answers">{{ $index+1 }} : {{answer}}</li>
 	</ul>
   </div>
-<div class="text-center" ng-controller="AdminCtrl">
-    <div class="btn-group" role="group" aria-label="First group">
-        <button id="next" type="button" class="btn btn-default" ng-click="next()">NEXT QUESTION</button>
-	    <button id="reset" type="button" class="btn btn-default" ng-click="reset()">Reset</button>
-        <button id="getResponse" type="button" class="btn btn-default" ng-click="getReponse()">Réponse</button>
-        <button id="addSeries" type="button" class="btn btn-default" ng-click="addSeries()">Réponse</button>
-    </div>
-    <br />
+
+<br />
+
+<br />
+
+<section layout="row" layout-sm="column" layout-align="center center">
+		<md-button class="md-raised md-primary" ng-click="next()">Next question</md-button>
+	  <md-button class="md-raised md-primary" ng-click="push()">push</md-button>
+	  	  <md-button class="md-raised md-primary" ng-click="reset()">Reset</md-button>
+      <md-button class="md-raised md-primary" ng-click="showme=true">Show graph</md-button>
+	  <md-button class="md-raised md-primary" ng-click="showme=false">hide graph</md-button>
+
+	      <md-input-container flex>
+          <label>Question</label>
+          <input ng-model="goToQuestion">
+        </md-input-container>
+			  <md-button class="md-raised md-primary" ng-click="goTo()">go</md-button>
+
+      <div class="label">Raised</div>
+    </section>
+
+  <div  ng-show="showme" >
+<highchart id="chart1" config="chartConfig" ></highchart>
 </div>
-
-
-
-<highchart id="chart1" config="chartConfig"></highchart>

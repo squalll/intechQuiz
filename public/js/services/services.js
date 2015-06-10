@@ -9,6 +9,12 @@ appServices.factory('QuestionService', function($http) {
  
         reset: function() {
             return $http.get( '/questions/reset');
+        },
+		 getNext: function() {
+            return $http.get( '/questions/getNext');
+        },
+		goToQuest: function(n) {
+            return $http.post( '/questions/goToQuest',{goTo: n});
         }
 
     }

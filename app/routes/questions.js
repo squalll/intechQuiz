@@ -8,10 +8,31 @@ var questionNumber = -1;
 //compteur de gagnants
 var winners = 0;
 
-exports.getNext = function(req, res) {
+exports.getNext = function(io) {
+ 	
+	return function(req, res){
+
+    io.sockets.emit('questionAdmin',  data.questions[++questionNumber]);
+	
+	   io.sockets.emit('clean', data.questions[questionNumber]);
+
 	return res.json(200, data.questions[questionNumber]);
  
+	}
+};
 
+
+exports.goToQuest = function(io) {
+ 	
+	return function(req, res){
+		var index = Number(req.body.goTo);
+		   console.log(req.body);
+		questionNumber = index;
+		io.sockets.emit('questionAdmin',  data.questions[questionNumber]);
+
+		return res.json(200, data.questions[questionNumber]);
+	 
+  }
 };
 
 exports.reset = function(req, res) {
@@ -27,7 +48,7 @@ exports.pushNext = function(io) {
  	
   return function(req, res){
     
-    io.sockets.emit('question',  data.questions[++questionNumber]);
+    io.sockets.emit('question',  data.questions[questionNumber]);
     res.json(200, {message: "Message received!"});    
   }
 };

@@ -3,37 +3,28 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
    function AdminCtrl($scope,$http,QuestionService,VoteService) {
 
     $scope.currentQuestion={};
-
+	
+	 $scope.goToQuestion="";
+	
 	 $scope.next = function(){
-        QuestionService.pushNext();
-		VoteService.reset();
+        QuestionService.getNext();
+      }
+	  
+	   $scope.goTo = function(){
+        QuestionService.goToQuest($scope.goToQuestion);
+      }
+	  
+	  $scope.push = function(){
+	  	VoteService.reset().success(function(retour) {
+                   QuestionService.pushNext();
+        }).error(function(status,retour) {
+            //console.log(status);
+            // console.log(data);
+        });;
       }
 
-	   $scope.getReponse = function(){
-		VoteService.getAll().success(function(retour) {
-			$scope.chartConfig.series[0].data = [10, 15, 1, 4, 6];
-			 console.log('data : ' + retour);
-
-			// $location.path("/config");
-
-
-		}).error(function(status,retour) {
-			//console.log(status);
-			// console.log(data);
-		});;
-
-      }
-
-
-	      $scope.addSeries = function () {
-        var rnd = []
-        for (var i = 0; i < 10; i++) {
-            rnd.push(Math.floor(Math.random() * 20) + 1)
-        }
-        $scope.chartConfig.series.push({
-            data: rnd
-        })
-    }
+	 
+        VoteService.getAll()
 
 	  $scope.reset = function(){
         QuestionService.reset();
@@ -41,7 +32,7 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
       }
 	     var socket = io();
 
-    socket.on('question', function (data) {
+    socket.on('questionAdmin', function (data) {
         $scope.currentQuestion=data;
         var categories = [];
         for (var i = 1 ; i < data.answers.length+1 ; i++){

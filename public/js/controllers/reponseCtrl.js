@@ -39,6 +39,18 @@ appControllers.controller('ReponseCtrl', ['$scope', '$http','VoteService',
          };
 		 $scope.$apply();
     });
+	
+	    socket.on('clean', function (data) {
+		  $scope.currentQuestion={};
+
+        $('md-whiteframe').css('background-color', '')
+		$scope.currentQuestion = {
+             question: data.question
+			 };
+   
+		 $scope.$apply();
+    });
+
 
 
     //si on veut gerer le vote par websocket

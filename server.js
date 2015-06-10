@@ -80,7 +80,11 @@ app.get('/votes/getAll', routes.votes.getvotes);
 app.get('/votes/reset', routes.votes.reset);
 
 //getNext
-app.get('/questions/getNext', routes.questions.getNext);
+app.get('/questions/getNext', routes.questions.getNext(io));
+
+//goToQuest
+app.post('/questions/goToQuest', routes.questions.goToQuest(io));
+
 
 //pushNext
 app.get('/questions/pushNext', routes.questions.pushNext(io));
