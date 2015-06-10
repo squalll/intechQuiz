@@ -34,6 +34,10 @@ body {
 }
 */
 
+md-whiteframe {
+  background-color:white;
+}
+
 .animate-switch {
        /* position:absolute;*/
 }
