@@ -6,7 +6,7 @@
 
 <div style="width:100%;height:80%"  layout="column"  layout-align="center center" ng-controller="ReponseCtrl">
  <md-whiteframe class="md-whiteframe-z5"  layout="column" layout-align="center center" ng-switch="voted" style="position:relative">
-    <div class="container animate-switch"  style="max-width:270px" ng-switch-when="false">
+    <div class="container animate-switch"  style="width:270px" ng-switch-when="false">
       <md-grid-list md-cols="3" md-row-height="68px">
         <md-grid-tile ng-repeat="n in currentQuestion.answers" flex>
           <md-button class="md-fab md-primary" ng-click="vote($index+1)">{{ $index+1 }} </md-button>
