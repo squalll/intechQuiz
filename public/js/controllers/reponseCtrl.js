@@ -11,10 +11,10 @@ appControllers.controller('ReponseCtrl', ['$scope', '$http','VoteService',
           //check winner
           if (response.win != null) {
               if (response.win == true) {
-                  $('md-whiteframe').css('background-color', 'green')
+                  $( "#framecolor" ).css('background-color', 'green')
                   console.log("winner");
               } else {
-                  $('md-whiteframe').css('background-color', 'red')
+                  $( "#framecolor" ).css('background-color', 'red')
               }
           }
       });
@@ -30,7 +30,7 @@ appControllers.controller('ReponseCtrl', ['$scope', '$http','VoteService',
     socket.on('question', function (data) {
 		 $scope.voted = false;
 
-        $('md-whiteframe').css('background-color', '')
+       $( "#framecolor" ).css('background-color', '')
 
         //on ne passe pas tout sinon la reponse arrive sur le client
          $scope.currentQuestion = {
@@ -43,7 +43,7 @@ appControllers.controller('ReponseCtrl', ['$scope', '$http','VoteService',
 	    socket.on('clean', function (data) {
 		  $scope.currentQuestion={};
 
-        $('md-whiteframe').css('background-color', '')
+        $( "#framecolor" ).css('background-color', '')
 		$scope.currentQuestion = {
              question: data.question
 			 };
