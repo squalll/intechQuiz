@@ -1,0 +1,8 @@
+
+{ "questions": [
+  {      "type": "N" , "theme": "CFL"   , "question": "Que veut dire l'acronyme : CFL"  , "goodanswer" : 3, "answers": [ "Collaborateurs Faits pour L'aventure", "Chemins de Fer Luxembourgeois", "Comité des Fêtes et Loisirs", "Club des Fainéants Luxembourgeois", "Centre de Formation des Léthargiques", "Coquin, Frivole et Libertin"]    }
+, {      "type": "N" , "theme": "FFA"   , "question": "Que veut dire l'acronyme : FFA"  , "goodanswer" : 5, "answers": [ "Fédération des Faignasses Alcooliques", "Fa Falloir Affurer !", "Filles Fêtes & Autres... ", "Force il Faudra Avoir", "Far Far Away", "Festival du Football Amateur"]    }
+, {      "type": "10", "theme": "InTech", "question": "Que veut dire l'acronyme : PPGE" , "goodanswer" : 6, "answers": [ "Plus Petite Gratification d'Entreprise", "Pactole Pour le Grand Entrepreneur", "Pas Plus de Générosité (Et alors ?!)", "Prime Partagée de Gratification Equitable", "Petite Prime pour Grands Espoirs", "Prime de Performance Globale de l'Entreprise"]    }
+, {      "type": "2" , "theme": "FFA"   , "question": "Comment écrit-on ?"              , "goodanswer" : 4, "answers": [ "Cata marrante", "Cas à Marrand", "K-Tamaran", "Catamaran", "Cattamaran", "Catammaran", "Catamarren", "Catam Harang"]    }
+, {      "type": "1" , "theme": "CFL"   , "question": "Combien d'activités étaient prévues en 2015", "goodanswer" : 3, "answers": [ "15", "17", "19", "21"]    }
+ ] }

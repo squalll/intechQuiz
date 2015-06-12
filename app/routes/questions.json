@@ -1,8 +1,33 @@
-
-{ "questions": [
-  {      "type": "N" , "theme": "CFL"   , "question": "Que veut dire l'acronyme : CFL"  , "goodanswer" : 3, "answers": [ "Collaborateurs Faits pour L'aventure", "Chemins de Fer Luxembourgeois", "ComitÃ© des FÃªtes et Loisirs", "Club des FainÃ©ants Luxembourgeois", "Centre de Formation des LÃ©thargiques", "Coquin, Frivole et Libertin"]    }
-, {      "type": "N" , "theme": "FFA"   , "question": "Que veut dire l'acronyme : FFA"  , "goodanswer" : 5, "answers": [ "FÃ©dÃ©ration des Faignasses Alcooliques", "Fa Falloir Affurer !", "Filles FÃªtes & Autres... ", "Force il Faudra Avoir", "Far Far Away", "Festival du Football Amateur"]    }
-, {      "type": "10", "theme": "InTech", "question": "Que veut dire l'acronyme : PPGE" , "goodanswer" : 6, "answers": [ "Plus Petite Gratification d'Entreprise", "Pactole Pour le Grand Entrepreneur", "Pas Plus de GÃ©nÃ©rositÃ© (Et alors ?!)", "Prime PartagÃ©e de Gratification Equitable", "Petite Prime pour Grands Espoirs", "Prime de Performance Globale de l'Entreprise"]    }
-, {      "type": "2" , "theme": "FFA"   , "question": "Comment Ã©crit-on ?"              , "goodanswer" : 4, "answers": [ "Cata marrante", "Cas Ã  Marrand", "K-Tamaran", "Catamaran", "Cattamaran", "Catammaran", "Catamarren", "Catam Harang"]    }
-, {      "type": "1" , "theme": "CFL"   , "question": "Combien d'activitÃ©s Ã©taient prÃ©vues en 2015", "goodanswer" : 3, "answers": [ "15", "17", "19", "21"]    }
- ] }
+                                                               { "questions": [ 
+  {      "type": "N", "theme": "FFA", "question": "Comment écrit-on … ?", "answers": [ "Cata marrante", "Cas à Marrand", "K-Tamaran", "Catamaran", "Cattamaran", "Catammaran", "Catamarren", "Catam Harang"]    } 
+, {      "type": "2", "theme": "Intech", "question": "Qui avez-vous reconnu sur cette photo?", "answers": [ "Le père d'Eric Kaminiski", "Luke skywalker", "Le plus grand fan du FC Metz", "Un directeur d'InTech", "Un inconnu"]    } 
+, {      "type": "N", "theme": "FFA", "question": "Que veut dire l'acronyme : FFA ?", "answers": [ "Fédération des Faignasses Alcooliques", "Fa Falloir Affurer !", "Filles Fêtes & Autres... ", "Force il Faudra Avoir", "Far Far Away", "Festival du Football Amateur"]    } 
+, {      "type": "N", "theme": "CFL", "question": "Que veut dire l'acronyme : CFL ?", "answers": [ "Collaborateurs Faits pour L'aventure", "Chemins de Fer Luxembourgeois", "Comité des Fêtes et Loisirs", "Club des Fainéants Luxembourgeois", "Centre de Formation des Léthargiques", "Coquin, Frivole et Libertin"]    } 
+, {      "type": "N", "theme": "POST", "question": "Quel est le nombre de filiales du groupoe POST ?", "answers": [ "8", "10", "12", "14", "16", "18", "20"]    } 
+, {      "type": "N", "theme": "Physique", "question": "A quelle vitesse doit-on envoyer une balle de dodgeball enduite d'essence pour qu'elle s'enflamme ? (HADOKEN)", "answers": [ "Faut être débile pour calculer ça !", "340m/s", "142km/h (88 miles/h)", "150km/h (Olive Atton)"]    } 
+, {      "type": "1", "theme": "CFL", "question": "Combien d'activités étaient prévues en 2015 ?", "answers": [ "15", "17", "19", "21", "20"]    } 
+, {      "type": "N", "theme": "BD", "question": "Dans Lanfeust, comment fait-on avancer les Pétaures ?", "answers": [ "En criant", "En sifflant", "Avec des flatulences", "En riant", "En chantant"]    } 
+, {      "type": "N", "theme": "Intech", "question": "Qui est le binome d'Anthony sur le projet drone  ?", "answers": [ "Margaux", "Brian", "Annael", "Allan"]    } 
+, {      "type": "N", "theme": "Intech", "question": "Qui est resté stagiaire le plus longtemps ?", "answers": [ "Eric K.", "Nicolas S.", "Yohann T.", "Mathieu C."]    } 
+, {      "type": "N", "theme": "Num", "question": "A combien est évaluée la pénurie de développeurs dans 5 ans en Europe  ?", "answers": [ "10000", "300000", "1000000", "50000000"]    } 
+, {      "type": "N", "theme": "Intech", "question": "Quelle est la traduction anglaise de 'RSE'  ?", "answers": [ "ESR", "CSR", "SSR", "RES"]    } 
+, {      "type": "2", "theme": "Intech", "question": "Quel collaborateur a joué dans Pirate des Caraïbes  ?", "answers": [ "Capitaine Croiseaux", "Elisabeth Milair", "Bill le bocci", "William Larose", "Philippe Jones"]    } 
+, {      "type": "N", "theme": "Intech", "question": "Quel pourcentage de voiture de la flotte POST est éligible à l'application InTech  ?", "answers": [ "81", "35", "97", "65"]    } 
+, {      "type": "10", "theme": "InTech", "question": "Que veut dire l'acronyme : PPGE ?", "answers": [ "Plus Petite Gratification d'Entreprise", "Pactole Pour le Grand Entrepreneur", "Pas Plus de Générosité (Et alors ?!)", "Prime Partagée de Gratification Equitable", "Petite Prime pour Grands Espoirs", "Prime de Performance Globale de l'Entreprise"]    } 
+, {      "type": "N", "theme": "Javascript", "question": "var f = function g() { return 69; }; Quel est le résultat de : typeof g() ?", "answers": [ "number", "crazy", "function", "error", "undefined", "dontcare", "F*%^!#"]    } 
+, {      "type": "N", "theme": "FFA", "question": "Quelle sera la prochaine destination ?", "answers": [ "Grèce", "Canaries", "Islande", "Maroc", "Turquie"]    } 
+, {      "type": "N", "theme": "Musique", "question": "A quelle chanteuse de Salsa Jennifer Lopez a rendu hommage lors des American Music Awards 2013 ?", "answers": [ "La Lupe", "Gloria Estefan", "Celia Cruz", "Slucky"]    } 
+, {      "type": "3", "theme": "FFA", "question": "Quelle activité n'a pas été proposée lors d'un FFA ?", "answers": [ "Château de sable", "Volley ball", "Paddle surf", "Alcool", "Plongée", "Planche à voile", "Snorkeling"]    } 
+, {      "type": "N", "theme": "Java", "question": "Cherchez l'intrus parmi ces acronymes du monde Java associés au Web  ?", "answers": [ "JSP", "JCA", "JSTL", "JSF", "JWS"]    } 
+, {      "type": "N", "theme": "Num", "question": "Quelle technologie est utilisée pour le serveur de cette application  ?", "answers": [ "nodeJS", "play", "php", "python", "pas de serveur", "VB", "PB"]    } 
+, {      "type": "N", "theme": "Actualité", "question": "Quel acteur célèbre s'est donné la mort en Juillet 2014 ?", "answers": [ "Philip Seymour Hoffman", "Paul Walker", "Lee Thompson Young", "Robin Williams"]    } 
+, {      "type": "N", "theme": "Sport", "question": "A quelle hauteur le perchiste Renaud Lavillenie a-t-il établi le record du monde en Février 2014 ?", "answers": [ "5,92m", "6,04m", "6,12m", "6,16m"]    } 
+, {      "type": "N", "theme": "InTech", "question": "En quelle position arrive InTech dans l'ordre alphabétique des filiales POST ?", "answers": [ "1", "2", "3", "4", "5", "6", "7", "8", "9"]    } 
+, {      "type": "N", "theme": "Sport", "question": "Quel terrain est le plus grand ?", "answers": [ "Tennis", "Basket ball", "Handball", "Volley ball"]    } 
+, {      "type": "N", "theme": "Luxembourg", "question": "Trouver l'intrus parmi ces prénoms issus de la famille grand ducale", "answers": [ "Félix", "Noah", "Gabrielle", "Louis", "Guillaume"]    } 
+, {      "type": "N", "theme": "Cinéma", "question": "Quel est le nom de l'enquêtrice dans le Silence des Agneaux ?", "answers": [ "Sara Sidle", "Samantha Spade", "Olivia Benson", "Clarice Starling"]    } 
+, {      "type": "N", "theme": "Cuisine", "question": "Que met-on dans un café électrique ?", "answers": [ "Pastis", "Rhum", "Whisky", "Cognac"]    } 
+, {      "type": "N", "theme": "Intech", "question": "Laquelle de ces applications ne fait pas partie du projet SSO", "answers": [ "LogInTech", "AppInTech", "ComInTech", "CasInTech"]    } 
+, {      "type": "N", "theme": "Intech", "question": "Quel est le nom de l'application d'alerting de Lombard", "answers": [ "Hospital", "Bipbip", "WarnMe", "Gyrophare"]    } 
+, {      "type": "N", "theme": "Intech", "question": "Quel type de transport est assuré par les ambulances de la CRL", "answers": [ "urgence", "Interhospitalier", "organes", "sang"]    } 
+]}
