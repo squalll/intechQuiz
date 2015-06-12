@@ -9,7 +9,7 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
 	
 	 $scope.next = function(){
         QuestionService.getNext();
-            $scope.showRep=false;
+        $scope.showRep=false;
       }
 	  
 	   $scope.goTo = function(){
@@ -43,6 +43,7 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
             categories.push('' + i);
         }
         Highcharts.charts[0].xAxis[0].setCategories(categories);
+        	 $scope.$apply();
     });
 
    socket.on('votes', function (votes) {
