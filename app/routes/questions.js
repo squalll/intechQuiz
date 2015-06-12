@@ -30,6 +30,7 @@ exports.goToQuest = function(io) {
 		questionNumber = index;
 		io.sockets.emit('questionAdmin',  data.questions[questionNumber]);
 
+       io.sockets.emit('clean', data.questions[questionNumber]);
 		return res.json(200, data.questions[questionNumber]);
 	 
   }

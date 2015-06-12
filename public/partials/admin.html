@@ -4,7 +4,7 @@
   </div>
 </div>
 
-  <div class="container" style="opacity: 0.9;">
+  <div class="container" style="opacity: 0.9;" ng-show="showRep">
 	  <ul class="list-group">
 		  <li class="list-group-item" ng-repeat="answer in currentQuestion.answers">{{ $index+1 }} : {{answer}}</li>
 	</ul>

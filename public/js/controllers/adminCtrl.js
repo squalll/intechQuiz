@@ -5,18 +5,22 @@ appControllers.controller('AdminCtrl', ['$scope', '$http','QuestionService','Vot
     $scope.currentQuestion={};
 	
 	 $scope.goToQuestion="";
+    $scope.showRep=false;
 	
 	 $scope.next = function(){
         QuestionService.getNext();
+            $scope.showRep=false;
       }
 	  
 	   $scope.goTo = function(){
         QuestionService.goToQuest($scope.goToQuestion);
+        $scope.showRep=false;
       }
 	  
 	  $scope.push = function(){
 	  	VoteService.reset().success(function(retour) {
                    QuestionService.pushNext();
+                       $scope.showRep=true;
         }).error(function(status,retour) {
             //console.log(status);
             // console.log(data);
