@@ -5,19 +5,22 @@
 </div>
 
 <div style="width:100%;height:80%"  layout="column"  layout-align="center center" ng-controller="ReponseCtrl">
- <md-whiteframe class="md-whiteframe-z5"  layout="column" layout-align="center center" ng-switch="voted" style="position:relative">
-    <div class="container animate-switch"  style="width:270px" ng-switch-when="false">
-      <md-grid-list md-cols="3" md-row-height="68px">
-        <md-grid-tile ng-repeat="n in currentQuestion.answers" flex>
-          <md-button class="md-fab md-primary" ng-click="vote($index+1)">{{ $index+1 }} </md-button>
-        </md-grid-tile>
-      </md-grid-list>
+  <center>
+    <div class="container" ng-switch="voted" style="width:100%;margin:0 auto;">
+           <div class="container row animate-switch"  style="width:270px" ng-switch-when="false">    
+                  <div class='col-xs-4' ng-repeat="n in currentQuestion.answers">
+                    <md-button class="md-fab md-primary" ng-click="vote($index+1)">{{ $index+1 }} </md-button>
+                 </div>
+           
+           </div>
+           <div class="animate-switch" ng-switch-when="true" >
+               <img  src="/images/voted.png" style="width:320px" />
+          </div>
     </div>
-    <div class="animate-switch" ng-switch-when="true" >
-      <img  src="/images/voted.png" style="width:320px" />
-    </div>
-  </md-whiteframe>
+    </center>
+ 
 </div>
 
 
 
+              
